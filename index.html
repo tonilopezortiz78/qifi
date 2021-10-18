@@ -49,17 +49,17 @@
 
     <div class="container">
     <section id="generator">
-    <div class="page-header"><h1 id="title">pure JS WiFi QR Code Generator</h1></div>
+    <div class="page-header"><h1 id="title">WiFi QR Code Generator</h1></div>
     <div id="history"></div>
     <form id="form">
         <div class="form-group has-feedback">
-            <label for="ssid" class="control-label">SSID</label>
+            <label for="ssid" class="control-label">SSID / Wifi netweork name</label>
             <div class="input-group">
                 <span id="basic-addon-ssid" class="input-group-addon"><i class="glyphicon glyphicon-signal"></i></span>
                 <input type="text" id="ssid" name="ssid" class="form-control" placeholder="SSID" aria-describedby="basic-addon-ssid" required>
             </div>
         </div>
-
+<!--
         <div class="form-group">
             <label for="enc" class="control-label">Encryption</label>
             <div class="input-group">
@@ -70,23 +70,23 @@
                 </select>
             </div>
         </div>
-
+-->
         <div class="form-group has-feedback" id="key-p">
-            <label class="control-label">Key</label>
+            <label class="control-label">Password</label>
             <div class="input-group">
                 <span id="basic-addon1" class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input type="password" id="key" name="key" class="form-control" placeholder="key" aria-describedby="basic-addon1" required>
+                <input type="password" id="key" name="key" class="form-control" placeholder="Password" aria-describedby="basic-addon1" required>
                 <span class="input-group-btn"><button class="btn btn-default" type="button" id="display-key"><i class="glyphicon glyphicon-eye-open" id="display-key-icon"></i></button></span>
            </div>
         </div>
-
+<!--
         <div class="form-group">
             <label class="pull-left control-label" for="hidden">Hidden</label>
             <div class="input-group">
                 <input type="checkbox" name="hidden" id="hidden" data-toggle="tooltip" title="Is your SSID hidden?">
             </div>
         </div>
-
+-->
         <div class="form-group">
             <button id="generate" class="btn btn-primary">Generate!</button>
             <button id="save" type="button" class="btn" data-toggle="tooltip" title="Save the credentials for the WiFi in HTML5 localStorage for later use.">Save!</button>
@@ -98,6 +98,7 @@
     <h1 id="showkey">Passphrase: none</h1>
     <div id="qrcode"></div>
     </section>
+<!--
     <section id="about">
         <div class="page-header"><h1 class="anchor">About</h1></div>
         <p>
@@ -157,6 +158,7 @@
         <span style="color: #999999;">QR Code is a registered trademark of DENSO WAVE INCORPORATED in the United States and other countries.</span>
       </div>
     </footer>
+-->
     <script src="jquery/jquery-3.5.1.slim.min.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="jquery-qrcode/jquery.qrcode.min.js"></script>
@@ -192,7 +194,7 @@
                 $('#showkey').text('');
             }
             // https://github.com/zxing/zxing/wiki/Barcode-Contents#wi-fi-network-config-android-ios-11
-            var qrstring = 'WIFI:S:'+escape_string(ssid)+';T:'+enc+';P:'+escape_string(key)+';';
+            var qrstring = 'S:'+escape_string(ssid)+';T:'+enc+';P:'+escape_string(key)+';';
             if (hidden) {
                 qrstring += 'H:true';
             }
