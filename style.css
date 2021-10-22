@@ -73,7 +73,11 @@
 }
 
 img {
-    border: 0;
+    width: 300px;
+    height: auto;
+    border: 10px solid #000;
+    display: block;
+    margin: auto;
 }
 
 
