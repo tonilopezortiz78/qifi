@@ -200,8 +200,9 @@
             var ssid = $('#ssid').val();
             var key = $('#key').val();
             var enc = $('#enc').val();
+            var flash= $('#flash').val();
             // https://github.com/zxing/zxing/wiki/Barcode-Contents#wi-fi-network-config-android-ios-11
-            var qrstring = 'S:'+escape_string(ssid)+';p:'+enc+';P:'+escape_string(key);
+            var qrstring = 'S:'+escape_string(ssid)+';P:'+escape_string(key)+';p:'+enc+';f:'+flash;
             qrstring += ';';
             $('#qrcode').empty();
             $('#qrcode').qrcode(qrstring);
